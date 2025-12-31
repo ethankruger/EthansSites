@@ -8,11 +8,6 @@ const projects = [
     url: "https://optimizedentry.com/",
   },
   {
-    title: "Ideal Electric Service",
-    description: "Professional electrical services site with clean layout and easy navigation.",
-    url: "https://ethankruger.github.io/IdealSite/",
-  },
-  {
     title: "Optimized Portal",
     description: "Software platform with intuitive dashboard and user management features.",
     url: "https://optimizedportal.com/",
@@ -24,7 +19,7 @@ const Projects = () => {
     <section id="work" className="py-32 relative overflow-hidden">
       {/* Background accent */}
       <div className="absolute top-1/2 left-0 w-1/2 h-96 bg-primary/5 blur-3xl -translate-y-1/2" />
-      
+
       <div className="container mx-auto px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
