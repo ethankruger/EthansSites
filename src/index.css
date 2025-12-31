@@ -1,0 +1,168 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Dark, sophisticated palette with warm amber accent */
+    --background: 220 15% 6%;
+    --foreground: 40 20% 92%;
+
+    --card: 220 12% 10%;
+    --card-foreground: 40 20% 92%;
+
+    --popover: 220 12% 10%;
+    --popover-foreground: 40 20% 92%;
+
+    --primary: 38 92% 50%;
+    --primary-foreground: 220 15% 6%;
+
+    --secondary: 220 12% 14%;
+    --secondary-foreground: 40 20% 85%;
+
+    --muted: 220 12% 18%;
+    --muted-foreground: 220 10% 55%;
+
+    --accent: 38 92% 50%;
+    --accent-foreground: 220 15% 6%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 12% 18%;
+    --input: 220 12% 14%;
+    --ring: 38 92% 50%;
+
+    --radius: 0.75rem;
+
+    /* Custom design tokens */
+    --glow-primary: 0 0 80px hsl(38 92% 50% / 0.3);
+    --gradient-hero: linear-gradient(180deg, hsl(220 15% 8%) 0%, hsl(220 15% 4%) 100%);
+    --gradient-card: linear-gradient(135deg, hsl(220 12% 12%) 0%, hsl(220 12% 8%) 100%);
+    --glass: hsl(220 12% 12% / 0.7);
+    --glass-border: hsl(40 20% 92% / 0.08);
+    
+    /* Typography */
+    --font-heading: 'Syne', sans-serif;
+    --font-body: 'Inter', sans-serif;
+
+    /* Shadows */
+    --shadow-sm: 0 2px 8px hsl(220 15% 0% / 0.3);
+    --shadow-md: 0 8px 30px hsl(220 15% 0% / 0.4);
+    --shadow-lg: 0 20px 60px hsl(220 15% 0% / 0.5);
+    --shadow-glow: 0 0 60px hsl(38 92% 50% / 0.15);
+
+    /* Sidebar defaults */
+    --sidebar-background: 220 12% 10%;
+    --sidebar-foreground: 40 20% 92%;
+    --sidebar-primary: 38 92% 50%;
+    --sidebar-primary-foreground: 220 15% 6%;
+    --sidebar-accent: 220 12% 14%;
+    --sidebar-accent-foreground: 40 20% 85%;
+    --sidebar-border: 220 12% 18%;
+    --sidebar-ring: 38 92% 50%;
+  }
+
+  .dark {
+    --background: 220 15% 6%;
+    --foreground: 40 20% 92%;
+    --card: 220 12% 10%;
+    --card-foreground: 40 20% 92%;
+    --popover: 220 12% 10%;
+    --popover-foreground: 40 20% 92%;
+    --primary: 38 92% 50%;
+    --primary-foreground: 220 15% 6%;
+    --secondary: 220 12% 14%;
+    --secondary-foreground: 40 20% 85%;
+    --muted: 220 12% 18%;
+    --muted-foreground: 220 10% 55%;
+    --accent: 38 92% 50%;
+    --accent-foreground: 220 15% 6%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 220 12% 18%;
+    --input: 220 12% 14%;
+    --ring: 38 92% 50%;
+    --sidebar-background: 220 12% 10%;
+    --sidebar-foreground: 40 20% 92%;
+    --sidebar-primary: 38 92% 50%;
+    --sidebar-primary-foreground: 220 15% 6%;
+    --sidebar-accent: 220 12% 14%;
+    --sidebar-accent-foreground: 40 20% 85%;
+    --sidebar-border: 220 12% 18%;
+    --sidebar-ring: 38 92% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+  }
+
+  ::selection {
+    @apply bg-primary/30 text-foreground;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-card/70 backdrop-blur-xl border border-border/50 rounded-2xl;
+    box-shadow: var(--shadow-md);
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-foreground via-primary to-foreground;
+  }
+
+  .glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .hover-lift {
+    @apply transition-all duration-500 ease-out;
+  }
+
+  .hover-lift:hover {
+    @apply -translate-y-2;
+    box-shadow: var(--shadow-lg), var(--shadow-glow);
+  }
+}
+
+@layer utilities {
+  .font-heading {
+    font-family: var(--font-heading);
+  }
+
+  .font-body {
+    font-family: var(--font-body);
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-background;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-muted rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-muted-foreground/50;
+  }
+}
